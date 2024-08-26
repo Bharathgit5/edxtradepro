@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState,useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore from 'swiper';
@@ -25,7 +26,7 @@ export default function Listing() {
   const [contact, setContact] = useState(false);
   const params = useParams();
   const { currentUser } = useSelector((state) => state.user);
-
+  const buyNowRef = useRef(null);
   useEffect(() => {
     const fetchListing = async () => {
       try {
@@ -52,7 +53,7 @@ export default function Listing() {
     <main>
       {loading && <p className='text-center my-7 text-2xl'>Loading...</p>}
       {error && (
-        <p className='text-center my-7 text-2xl'>Please login to your account</p>
+        <p className='text-center my-7 text-2xl'>Something went wrong!</p>
       )}
       {listing && !loading && !error && (
         <div>
@@ -99,11 +100,11 @@ export default function Listing() {
               {listing.address}
             </p>
             <div className='flex gap-4'>
-              <p className='bg-orange-500 w-full max-w-[200px] text-white text-center p-1 rounded-md'>
+              <p className='bg-orange-500 w-40 max-w-[200px] text-white text-center p-1 rounded-md'>
                 {listing.type === 'rent' ? 'For Rent' : 'For sale'}
               </p>
               {listing.offer && (
-                <p className='bg-green-900 w-full max-w-[200px] text-white text-center p-1 rounded-md'>
+                <p className='bg-green-900 w-40 max-w-[200px] text-white text-center p-1 rounded-md'>
                   ₹{+listing.regularPrice - +listing.discountPrice} OFF
                 </p>
               )}
@@ -112,7 +113,7 @@ export default function Listing() {
               <span className='font-semibold text-black'>Description - </span>
               {listing.description}
             </p>
-         
+          
             {currentUser && listing.userRef !== currentUser._id && !contact && (
               <button
                 onClick={() => setContact(true)}

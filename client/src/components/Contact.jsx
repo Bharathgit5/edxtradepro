@@ -45,6 +45,7 @@ export default function Contact({ listing }) {
           >
             Send Message          
           </Link>
+          <p className='text-red-500'>Please delete your product after a successful trade</p>
         </div>
       )}
     </>
