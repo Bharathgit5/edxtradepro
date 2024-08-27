@@ -8,6 +8,9 @@ const Footer = () => {
       <section id='contact-section' className="w-4/5 p-4 mx-auto mt-5 bg-white rounded-lg shadow-md">
         <h2 className='text-2xl  text-center pb-5'>Contact us</h2>
         <div className='flex justify-center items-center space-x-8'>
+        <a href="https://www.instagram.com/edxtrade/" target="_blank" rel="noopener noreferrer" aria-label="instagram">
+            <FaInstagram className="text-1xl " />
+          </a>
           <a href="mailto: bharathjbiet10@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="mail">
             <FaEnvelope className="text-1xl" />
           </a>
@@ -41,7 +44,7 @@ const Footer = () => {
       <div className='text-center mb-5 '>
         <Link to="/Termsandconditions" className='text-black no-underline mx-1'>Terms and Conditions</Link>
         <Link to="/PrivacyPolicy" className='text-black no-underline mx-1'>Privacy Policy</Link>
-        <Link to="/Aboutus" className='text-black no-underline mx-1 '>About Us</Link>
+        <Link to="/About" className='text-black no-underline mx-1 '>About Us</Link>
       </div>
 
       <div className="text-center mt-5">

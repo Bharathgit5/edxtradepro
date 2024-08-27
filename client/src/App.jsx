@@ -11,6 +11,8 @@ import UpdateListing from './pages/UpdateListing';
 import Listing from './pages/Listing';
 import Search from './pages/Search';
 import Footer from './components/Footer';
+import Termsandconditions from './pages/Termsandconditions';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 export default function App() {
   return (
     <BrowserRouter>
@@ -19,7 +21,10 @@ export default function App() {
         <Route path='/' element={<Home />} />
         <Route path='/sign-in' element={<SignIn />} />
         <Route path='/sign-up' element={<SignUp />} />
-        <Route path='/about' element={<About />} />
+        <Route path='/About' element={<About />} />
+        <Route path='/TermsandconditIons' element={<Termsandconditions/>}></Route>
+        <Route path='/PrivacyPolicy' element={<PrivacyPolicy/>}></Route>
+      
         <Route path='/search' element={<Search />} />
         <Route path='/listing/:listingId' element={<Listing />} />
 
