@@ -10,6 +10,7 @@ import { gsap, Power3 } from 'gsap';
 
 
 export default function Home() {
+   const API_BASE = import.meta.env.VITE_API_BASE;
   const [offerListings, setOfferListings] = useState([]);
   const [sellListings, setsellListings] = useState([]);
   const [rentListings, setRentListings] = useState([]);
@@ -26,7 +27,7 @@ export default function Home() {
   useEffect(() => {
     const fetchOfferListings = async () => {
       try {
-        const res = await fetch('/api/listing/get?offer=true&limit=4');
+       const res = await fetch(`${API_BASE}/listing/get?offer=true&limit=4`);
         const data = await res.json();
         setOfferListings(data);
         fetchRentListings();
@@ -37,7 +38,7 @@ export default function Home() {
 
     const fetchRentListings = async () => {
       try {
-        const res = await fetch('/api/listing/get?type=rent&limit=4');
+        const res = await fetch(`${API_BASE}/listing/get?type=rent&limit=4`);
         const data = await res.json();
         setRentListings(data);
         fetchsellListings();
@@ -48,7 +49,7 @@ export default function Home() {
 
     const fetchsellListings = async () => {
       try {
-        const res = await fetch('/api/listing/get?type=sell&limit=4');
+        const res = await fetch(`${API_BASE}/listing/get?type=sell&limit=4`);
         const data = await res.json();
         setsellListings(data);
         setLoading(false);

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Contact({ listing }) {
+   const API_BASE = import.meta.env.VITE_API_BASE;
   const [Seller, setSeller] = useState(null);
   const [message, setMessage] = useState('');
   const onChange = (e) => {
@@ -11,7 +12,7 @@ export default function Contact({ listing }) {
   useEffect(() => {
     const fetchSeller = async () => {
       try {
-        const res = await fetch(`/api/user/${listing.userRef}`);
+        const res = await fetch(`${API_BASE}/user/${listing.userRef}`);
         const data = await res.json();
         setSeller(data);
       } catch (error) {

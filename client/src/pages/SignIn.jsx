@@ -9,6 +9,7 @@ import {
 import OAuth from '../components/OAuth';
 
 export default function SignIn() {
+   const API_BASE = import.meta.env.VITE_API_BASE;
   const [formData, setFormData] = useState({});
   const { loading, error } = useSelector((state) => state.user);
   const navigate = useNavigate();
@@ -23,7 +24,7 @@ export default function SignIn() {
     e.preventDefault();
     try {
       dispatch(signInStart());
-      const res = await fetch('/api/auth/signin', {
+      const res = await fetch(`${API_BASE}/auth/signin`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
