@@ -8,7 +8,7 @@ export default function About() {
 
 Whether you're looking for textbooks, drawing drafters, lab equipment, or other student necessities, EdxTrade provides a safe and user-friendly marketplace tailored specifically for you. We are committed to helping students connect and share resources, making education more accessible and affordable.
 
-Join our growing community today and discover how EdxTrade can simplify your student life!</p>
+Join our growing community today and discover how EdxTrade can simplify your student life</p>
    </>
   )
 }
