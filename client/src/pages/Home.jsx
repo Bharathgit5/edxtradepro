@@ -23,6 +23,7 @@ export default function Home() {
   const buyNowRef = useRef(null);
   const sellNowRef = useRef(null);
   const descRef = useRef(null);
+console.log("VITE_API_BASE =", import.meta.env.VITE_API_BASE);
 
   useEffect(() => {
     const fetchOfferListings = async () => {
@@ -35,6 +36,7 @@ export default function Home() {
         console.log(error);
       }
     };
+     
 
     const fetchRentListings = async () => {
       try {
