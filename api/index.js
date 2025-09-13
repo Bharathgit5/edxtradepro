@@ -13,7 +13,7 @@ dotenv.config();
 const app = express();
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://edxtradepro.vercel.app"],
+    origin: ["http://localhost:5173", "https://edxtradepro.vercel.app",  "https://edxtradepro.vercel.app/"],
     credentials: true,
   })
 );
