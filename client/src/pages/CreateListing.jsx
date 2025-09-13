@@ -145,7 +145,9 @@ export default function CreateListing() {
       if (data.success === false) {
         setError(data.message);
       }
-      navigate(`/listing/${data._id}`);
+     if (data && data._id) {
+        return navigate(`/profile?show=listings`);
+      }
     } catch (error) {
       setError(error.message);
       setLoading(false);
