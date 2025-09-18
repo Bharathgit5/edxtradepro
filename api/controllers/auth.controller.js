@@ -3,7 +3,7 @@ import bcryptjs from 'bcryptjs';
 import { errorHandler } from '../utils/error.js';
 import jwt from 'jsonwebtoken';
 
-// User Signup
+
 export const signup = async (req, res, next) => {
   const { username, email, password } = req.body;
   const hashedPassword = bcryptjs.hashSync(password, 10);
@@ -16,7 +16,7 @@ export const signup = async (req, res, next) => {
   }
 };
 
-// User Signin
+
 export const signin = async (req, res, next) => {
   const { email, password } = req.body;
   try {
@@ -28,7 +28,7 @@ export const signin = async (req, res, next) => {
     const token = jwt.sign(
       { id: validUser._id },
       process.env.JWT_SECRET,
-      { expiresIn: '30d' } // Token expires in 30 days
+      { expiresIn: '30d' }
     );
 
     const { password: hashedPassword, ...rest } = validUser._doc;
@@ -39,6 +39,7 @@ export const signin = async (req, res, next) => {
         httpOnly: true,
         expires: expiryDate,
         secure: process.env.NODE_ENV === 'production',
+         sameSite: 'none'  
       })
       .status(200)
       .json(rest);
@@ -47,7 +48,6 @@ export const signin = async (req, res, next) => {
   }
 };
 
-// Google Signin
 export const google = async (req, res, next) => {
   try {
     const user = await User.findOne({ email: req.body.email });
@@ -55,7 +55,7 @@ export const google = async (req, res, next) => {
       const token = jwt.sign(
         { id: user._id },
         process.env.JWT_SECRET,
-        { expiresIn: '30d' } // Token expires in 30 days
+        { expiresIn: '30d' } 
       );
 
       const { password: hashedPassword, ...rest } = user._doc;
@@ -66,6 +66,7 @@ export const google = async (req, res, next) => {
           httpOnly: true,
           expires: expiryDate,
           secure: process.env.NODE_ENV === 'production',
+           sameSite: 'none'  
         })
         .status(200)
         .json(rest);
@@ -87,7 +88,7 @@ export const google = async (req, res, next) => {
       const token = jwt.sign(
         { id: newUser._id },
         process.env.JWT_SECRET,
-        { expiresIn: '30d' } // Token expires in 30 days
+        { expiresIn: '30d' } 
       );
 
       const { password: hashedPassword2, ...rest } = newUser._doc;
@@ -98,6 +99,7 @@ export const google = async (req, res, next) => {
           httpOnly: true,
           expires: expiryDate,
           secure: process.env.NODE_ENV === 'production',
+           sameSite: 'none'  
         })
         .status(200)
         .json(rest);
@@ -107,7 +109,7 @@ export const google = async (req, res, next) => {
   }
 };
 
-// User Signout
+
 export const signOut = (req, res) => {
   res.clearCookie('access_token').status(200).json('Signout success!');
 };
