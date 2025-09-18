@@ -132,10 +132,11 @@ export default function CreateListing() {
       setError(false);
       const res = await fetch(`${API_BASE}/listing/create`, {
         method: 'POST',
+         credentials: 'include',
         headers: {
           'Content-Type': 'application/json',
         },
-          credentials: 'include',
+        
         body: JSON.stringify({
           ...formData,
           userRef: currentUser._id,
