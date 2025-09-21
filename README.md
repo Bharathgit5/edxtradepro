@@ -8,7 +8,6 @@ The platform makes it easier for students to connect with each other, post items
 - 👤 User authentication (sign up / login)  
 - 📦 Post items for sale with images and descriptions  
 - 🔍 Search and filter items by category, price, or location  
-- 💬 In-app chat between buyers and sellers  
 - 🛒 Easy-to-use interface for browsing and purchasing  
 
 ## Tech Stack  
